@@ -3,11 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import Albums from './pages/albums';
+import InitialLoad from './pages/load';
+import ShowPhotos from './pages/photos';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <Switch>
+        <Route path="/" exact={true} component={App}/>
+        <Route path="/albuns" component={Albums} />
+        <Route path="/load" component={InitialLoad} />
+        <Route path="/photos/:id" component={ShowPhotos} />
+    </Switch>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
